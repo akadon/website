@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import React, { useState } from "react";
 import Skeleton from "./Skeleton";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { converter } from "./Types";
+import { axifetch } from "./Helper";
 
 export default function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -22,4 +24,4 @@ export default function App() {
   )
 }
 
-export { Hero, Card, Cards, Nav, Footer, Filter, Skeleton };
+export { Hero, Card, Cards, Nav, Footer, Filter, Skeleton, converter, axifetch };

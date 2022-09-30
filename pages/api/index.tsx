@@ -5,7 +5,7 @@ const api = (req: any, res: any) => {
     .then(data => {
       setTimeout(() => {
         res.json(data)
-      }, 2000)
+      }, 500)
     })
 }
 

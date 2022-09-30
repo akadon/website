@@ -1,38 +1,23 @@
-import axios from "axios";
 import { useQuery } from "react-query";
 import Skeleton from "./Skeleton";
+import { converter } from "./Types";
+import { axifetch } from "./Helper";
 
-export const axifetch = async (url: any) => {
-  return await axios.create({}).get(url).then((res: any) => { console.log("axi", res); return res.data });
-}
-
-const converter = (data: any) => {
-  return {
-    id: data.id,
-    name: data.name,
-    title: data.name,
-    description: data.description,
-    imageSrc: "/" + data.name + "/Image.jpg",
-    imageAlt: data.name + 'github url',
-    linkSrc: data.url,
-    linkAlt: data.name + 'github url',
-  };
-}
 
 const Imgcard = ({ content, index, to }: any) => {
   return (
     <>
-      {(typeof content !== 'undefined') ? content.posts.slice(index, to).concat(new Array(to).fill(0)).slice(index, to).map((contentpart: any, itr: number) => (
+      {(typeof content !== 'undefined') ? content.slice(index, to).concat(new Array((to - index)).fill(0)).slice(0, (to - index)).map((contentpart: any, itr: number) => (
         <>
           {(contentpart !== 0) ?
             <>
-              <img key={itr} src={converter(contentpart).imageSrc} alt={converter(contentpart).imageAlt} className="h-64 w-44 opacity-20 rounded-3xl" />
+              <img key={"Imgcard" + index + to + itr} src={converter(contentpart).imageSrc} alt={converter(contentpart).imageAlt} className="h-64 w-44 opacity-20 rounded-3xl" />
             </>
             :
-            <Skeleton key={itr} height="h-64" classname=" w-44 opacity-20 rounded-3xl" count={1} />
+            <Skeleton key={"Imgcardskell" + index + to + itr} height="h-64" classname=" w-44 opacity-20 rounded-3xl" count={1} />
           }
         </>
-      )) : [...Array(to)].map((x, itr) =>
+      )) : [...Array((to - index))].map((x, itr) =>
         <Skeleton key={itr} height="h-64" classname=" w-44 opacity-20 rounded-3xl" count={1} />
       )}
     </>
