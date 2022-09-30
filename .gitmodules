@@ -1,0 +1,6 @@
+[submodule "components/state_components"]
+	path = components/state_components
+	url = git@github.com:akadon/state_components.git
+[submodule "components/site_components"]
+	path = components/site_components
+	url = git@github.com:akadon/site_components.git
