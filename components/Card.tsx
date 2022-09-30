@@ -1,4 +1,6 @@
 import Skeleton from "./Skeleton";
+import ReactMarkdown from 'react-markdown'
+import { useState, useEffect } from 'react'
 
 interface ComponentProps {
 	content: contenttype;
@@ -17,6 +19,12 @@ type contenttype = {
 };
 
 const Card = ({ content, lines = 10 }: ComponentProps) => {
+	const [tosText, setTosText] = useState('')
+
+	useEffect(() => {
+		fetch(content.description).then(res => res.text()).then(text => setTosText(text))
+	})
+
 	return (
 		<div key={content.name} className='card border-2 rounded-2xl h-full w-full overflow-clip relative bg-slate-300'>
 
@@ -39,7 +47,7 @@ const Card = ({ content, lines = 10 }: ComponentProps) => {
 				</div>
 				<hr className='h-1 ml-5 mr-5' />
 				<div className=' text-lg flex items-center p-5 '>
-					{content.description != "" ? <p>{content.description}</p> : <Skeleton classname="" count={lines} />}
+					{content.description != "" ? <ReactMarkdown>{tosText}</ReactMarkdown> : <Skeleton classname="" count={lines} />}
 				</div>
 			</div>
 

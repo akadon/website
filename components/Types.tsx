@@ -5,7 +5,7 @@ export const converter = (data: any) => {
     id: data.id,
     name: data.name,
     title: data.name,
-    description: data.description,
+    description: "/portfolio/" + data.name + "/README.md",
     imageSrc: "/portfolio/" + data.name + "/Image.jpg",
     imageAlt: data.name + 'github url',
     linkSrc: data.url,
