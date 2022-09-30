@@ -1,6 +1,6 @@
 const api = (req: any, res: any) => {
 
-  fetch(`http://akavm.fritz.box/db.json`)
+  fetch(`/db.json`)
     .then(resp => resp.json())
     .then(data => {
       setTimeout(() => {
