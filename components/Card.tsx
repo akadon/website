@@ -20,10 +20,7 @@ type contenttype = {
 
 const Card = ({ content, lines = 10 }: ComponentProps) => {
 	const [tosText, setTosText] = useState('')
-
-	useEffect(() => {
-		fetch(content.description).then(res => res.text()).then(text => setTosText(text))
-	})
+	fetch(content.description).then(res => res.text()).then(text => setTosText(text))
 
 	return (
 		<div key={content.name} className='card border-2 rounded-2xl h-full w-full overflow-clip relative bg-slate-300'>
