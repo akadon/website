@@ -1,7 +1,7 @@
-const api = (req: any, res: any) => {
+import { axifetch } from "../../components/Helper";
 
-  fetch(`/db.json`)
-    .then(resp => resp.json())
+const api = (req: any, res: any) => {
+  axifetch("/db.json")
     .then(data => {
       setTimeout(() => {
         res.json(data)
