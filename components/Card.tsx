@@ -2,6 +2,7 @@ import Skeleton from "./Skeleton";
 import ReactMarkdown from 'react-markdown'
 import { useState, } from 'react'
 import { axifetch } from "./Helper";
+import Image from 'next/image'
 
 interface ComponentProps {
 	content: contenttype;
@@ -28,7 +29,7 @@ const Card = ({ content, lines = 10 }: ComponentProps) => {
 
 			<div className="absolute z-0 inset-0">
 				{content.imageSrc != "" ?
-					<img src={content.imageSrc} alt={content.imageAlt} className="h-full w-full" /> :
+					<Image src={content.imageSrc} alt={content.imageAlt} className="h-full w-full" width={500} height={500} /> :
 					<Skeleton height="h-full" classname="absolute inset-0" count={1} />
 				}
 			</div>

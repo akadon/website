@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import Skeleton from "./Skeleton";
 import { converter } from "./Types";
 import { axifetch } from "./Helper";
+import Image from 'next/image'
 
 
 const Imgcard = ({ content, index, to }: any) => {
@@ -10,9 +11,9 @@ const Imgcard = ({ content, index, to }: any) => {
       {(typeof content !== 'undefined') ? content.slice(index, to).concat(new Array((to - index)).fill(0)).slice(0, (to - index)).map((contentpart: any, itr: number) => (
         <>
           {(contentpart !== 0) ?
-            <>
-              <img key={"Imgcard" + index + to + itr} src={converter(contentpart).imageSrc} alt={converter(contentpart).imageAlt} className="h-64 w-44 opacity-20 rounded-3xl" />
-            </>
+            <div className="h-64 w-44 opacity-20 rounded-3xl" >
+              <Image height={300} width={200} key={"Imgcard" + index + to + itr} src={converter(contentpart).imageSrc} alt={converter(contentpart).imageAlt} className="h-full w-full rounded-3xl" />
+            </div>
             :
             <Skeleton key={"Imgcardskell" + index + to + itr} height="h-64" classname=" w-44 opacity-20 rounded-3xl" count={1} />
           }
