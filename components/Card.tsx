@@ -34,9 +34,7 @@ const Card = ({ content, lines = 10 }: ComponentProps) => {
 				}
 			</div>
 
-			<div className="absolute z-20 inset-0 cursor-pointer">
-				<a aria-label={content.linkAlt} href={content.linkSrc} className="h-full w-full" target="_self"></a>
-			</div>
+			<a aria-label={content.linkAlt} href={content.linkSrc} className="h-full w-full absolute z-20 inset-0 cursor-pointer" target="_self"></a>
 
 			<div className='relative h-full w-full bg-white opacity-95 translate-y-3/4 hover:translate-y-0 ease-in-out duration-500 ' >
 				<div className='h-1/4 text-3xl w-full p-7 pb-0'>
