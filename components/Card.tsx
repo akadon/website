@@ -44,7 +44,7 @@ const Card = ({ content, lines = 10 }: ComponentProps) => {
 				</div>
 				<hr className='h-1 ml-5 mr-5' />
 				<div className=' text-lg flex items-center p-5 '>
-					{content.description != "" ? <ReactMarkdown>{tosText}</ReactMarkdown> : <Skeleton classname="" count={lines} />}
+					{content.description != "" ? <>{tosText}</> : <Skeleton classname="" count={lines} />}
 				</div>
 			</div>
 
